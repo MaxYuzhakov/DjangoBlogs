@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    {% if title %}
+        <title>Django Blog - {{ title }}</title>
+    {% else %}
+        <title>Django Blog</title>
+    {% endif %}
+</head>
+{% if user.is_authenticated %}
+    <div align="right">
+        <a href="{% url 'profile' %}">{{ user.get_username }}</a>
+        <a href="{% url 'new_post' %}">{{ user.get_username }}</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'register' %}">Register</a>
+{% endif %}
+<body>
+
+<a href="{% url 'index' %}">Home</a>
+<a href="{% url 'about' %}">About</a>
+
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

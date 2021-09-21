@@ -1,0 +1,12 @@
+{% extends "blogs/base.html" %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Delete {{ object.title }}</legend>
+        </fieldset>
+        <div>
+            <button type="submit">Delete</button>
+        </div>
+    </form>
+{% endblock content %}
