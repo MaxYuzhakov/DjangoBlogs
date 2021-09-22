@@ -19,7 +19,7 @@ services:
     depends_on:
       - postgresdb
     ports:
-      - "8000:8000"
+      - "8001:8000"
     volumes:
       - ./:/usr/src/app
       - ./static/:/static
@@ -32,7 +32,7 @@ services:
       - postgresdb
       - blog
     ports:
-      - "80:80"
+      - "81:80"
     volumes:
     - ./static/:/static
 
