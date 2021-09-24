@@ -1,16 +1,22 @@
 {% extends "blogs/base.html" %}
 {% block content %}
     {% for post in posts %}
-        <article>
-          <div>
-            <div>
-              <a href="#">{{ post.author }}</a>
-              <small >{{ post.date_posted|date:"d m Y" }}</small>
+        <main class="container">
+            <div class="row mb-1">
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250 position-relative">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <strong class="d-inline-block mb-2 text-primary">{{ post.author }}</strong>
+                            <h3 class="mb-0">
+                                <a class="text-dark">{{ post.title }}</a>
+                            </h3>
+                            <div class="mb-1 text-muted">{{ post.date_posted|date:"d m Y" }}</div>
+                            <p class="card-text mb-auto">{{ post.content }}</p>
+                            <a href="{% url "post" post.id %}">Continue reading</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h2><a href="{% url "post" post.id %}">{{ post.title }}</a></h2>
-            <p>{{ post.content }}</p>
-          </div>
-        </article>
-        <hr>
+        </main>
     {% endfor %}
 {% endblock content %}

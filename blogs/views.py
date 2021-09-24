@@ -60,6 +60,7 @@ class DeletePostView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         'title',
         'content'
     ]
+    success_url = '/'
 
     def form_valid(self, form):
         form.instance.author = self.request.user

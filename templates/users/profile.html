@@ -1,14 +1,15 @@
 {% extends "blogs/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <h1> Logged in as {{ user.username }}</h1>
     <form method="POST">
         {% csrf_token %}
         <fieldset>
             <legend>Edit profile</legend>
-            {{ user_update_form }}
+            {{ user_update_form|crispy }}
         </fieldset>
         <div>
-            <button type="submit">Submit</button>
+            <button class="btn btn-default" type="submit">Submit</button>
         </div>
     </form>
 {% endblock content %}

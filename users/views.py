@@ -1,7 +1,11 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import *
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
+from django.urls import resolve
+from django.views.generic import CreateView, DetailView
+
+from .forms import *
 
 
 def register(request):
@@ -15,6 +19,12 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
+
+# class SignUpView(SuccessMessageMixin, DetailView):
+#     template_name = 'users/register.html'
+#     success_url = ('/')
+#     form_class = UserRegisterForm
 
 
 @login_required

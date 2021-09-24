@@ -1,13 +1,14 @@
 {% extends "blogs/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <form method="POST">
         {% csrf_token %}
         <fieldset>
             <legend>Join Today</legend>
-            {{ form }}
+            {{ form|crispy }}
         </fieldset>
         <div>
-            <button type="submit">Log in</button>
+            <button class="btn btn-default" type="submit">Log in</button>
             <small> Not registered? <a href="{% url "register" %}"> Sign up! </a></small>
         </div>
     </form>
