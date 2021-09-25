@@ -5,12 +5,6 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post
 
 
-# def home(request):
-#     context = {
-#         'posts': Post.objects.all()
-#     }
-#     return render(request, 'blogs/home.html', context)
-
 class BlogPostsView(ListView):
     model = Post
     template_name = 'blogs/home.html'
