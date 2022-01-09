@@ -35,4 +35,5 @@ services:
       - "81:80"
     volumes:
     - ./static/:/static
+    - ./media/:/media
 
